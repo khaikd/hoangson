@@ -1,0 +1,119 @@
+
+GET http://localhost:5000/api/auth
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA4MTEyODF9.XlKTQSY65HQEE3iSp_VN56S1IoeL1ub6NTXN1t7n_r0
+
+{
+    "username": "khaikd",
+    "password": "123456"
+}
+
+
+###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjEzMjU4MDR9.fhn4-nc_z-jkGo0SYsJzq7YEWhiK0sx15MiigZzj550
+
+{
+    "name": "Kiều Đức Khải",
+    "username": "khaikd2",
+    "password": "123456",
+    "phone": "0908839689"
+}
+
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "khaikd",
+    "password": "123456"
+}
+
+###
+GET http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA4MTEyODF9.XlKTQSY65HQEE3iSp_VN56S1IoeL1ub6NTXN1t7n_r0
+
+
+###
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA4MTEyODF9.XlKTQSY65HQEE3iSp_VN56S1IoeL1ub6NTXN1t7n_r0
+
+{
+    "title": "khaikd nhe",
+    "description": "abc",
+    "url": "google.com.vn",
+    "status": "LEARNING"
+}
+
+### 
+
+GET http://localhost:5000/api/cruises
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA4MTEyODF9.XlKTQSY65HQEE3iSp_VN56S1IoeL1ub6NTXN1t7n_r0
+
+###
+POST http://localhost:5000/api/cruises
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA4MTEyODF9.XlKTQSY65HQEE3iSp_VN56S1IoeL1ub6NTXN1t7n_r0
+
+{
+    "name": "Vspirit Premier Cruise",
+    "rating": 5,
+    "typeclass": "Deluxe",
+    "cabins": 25,
+    "description": "day la destination Vspirit Premier Cruise",
+    "notes": "Day la notes cua sale Vspirit Premier Cruise"
+}
+
+###
+GET http://localhost:5000/api/rooms
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA5NjE4NjR9.juy9eCLxiHh3b1Lxj7XG2jJjB6W7-vpkkqhnS94s2yE
+
+###
+POST http://localhost:5000/api/rooms
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA5NjE4NjR9.juy9eCLxiHh3b1Lxj7XG2jJjB6W7-vpkkqhnS94s2yE
+
+{
+    "name": "202",
+    "typeBed": "twin",
+    "locationRoom": "First Deck",
+    "cruiseId": "609ba41f2aa8ef27bcffe20f"
+}
+
+###
+PUT http://localhost:5000/api/rooms/609ded1a4b2b0230986b7bbc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA5NjE4NjR9.juy9eCLxiHh3b1Lxj7XG2jJjB6W7-vpkkqhnS94s2yE
+
+{
+    "name": "201",
+    "locationRoom": "First Deck",
+    "description": "Destination Room",
+    "cruiseId": "609ba41f2aa8ef27bcffe20f"
+}
+
+###
+DELETE http://localhost:5000/api/rooms/609deebfb109e20ca09dc8b8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA5NjE4NjR9.juy9eCLxiHh3b1Lxj7XG2jJjB6W7-vpkkqhnS94s2yE
+
+### 
+
+GET http://localhost:5000/api/cruises/609ba41f2aa8ef27bcffe20f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjA5ODYwMjZ9.nbXy9t3CS6MbVf-GUDT4rJA0NvI3LaAT2m2gwHbElqw
+
+###
+GET http://localhost:5000/api/categories
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjI3NzQ2NTZ9.fQw76yNzlM5F7GgOpwujQ2hAlB6EwMLaiLo3LS4VJ9s
+
+###
+GET http://localhost:5000/api/materials
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwYzMwYzRjNTIxMTJhZDg3M2U3ZjUiLCJpYXQiOjE2MjI3NzQ2NTZ9.fQw76yNzlM5F7GgOpwujQ2hAlB6EwMLaiLo3LS4VJ9s
