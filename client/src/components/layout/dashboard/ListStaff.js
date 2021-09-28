@@ -31,7 +31,7 @@ const ListStaff = () => {
                             user.level !== 'manager' ? (
                             <div key={index} className="list-group-item border-top-0">
                                 <i className="flag-icon flag-icon-us flag-icon-squared"></i>
-                                <p>{user.name}</p><span>$1,671.10</span>
+                                <p>{user.name}</p><span>{user.level === 'staff' ? "Nhân Viên" : user.level === 'stocker' ? "Thủ Kho" : user.level === 'accountant' ? "Kế Toán" : user.level === 'manager' ? "Giám Đốc" : ''}</span>
                             </div>
                             ) : '' 
                         ))}
