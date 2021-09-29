@@ -3,6 +3,7 @@ import { CategoryContext } from '../../../contexts/CategoryContext';
 import { AuthContext } from '../../../contexts/AuthContext';
 import {Spinner, Card} from 'react-bootstrap';
 import UpdateCategory from './UpdateCategory';
+import DeleteModal from '../DeleteModal';
 
 const ListCategory = () => {
 
@@ -73,7 +74,7 @@ const ListCategory = () => {
                                                                 <button className="btn btn-success btn-with-icon btn-block" onClick={chooseCategory.bind(this, category._id)}><i className="fe fe-edit"></i> Sửa</button>
                                                             </div>
                                                             <div className="col-sm">
-                                                                <button className="btn btn-danger btn-with-icon btn-block" onClick={deleteCategory.bind(this, category._id)}><i className="fe fe-trash-2"></i> Xóa</button>
+                                                                <DeleteModal idProps={category._id} deleteFunc={deleteCategory} />
                                                             </div>
                                                         </div>
                                                     </td>

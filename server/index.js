@@ -15,6 +15,7 @@ const depotRouter = require('./routes/depot')
 const supplierRouter = require('./routes/supplier')
 const exportRouter = require('./routes/export')
 const carRouter = require('./routes/car')
+const staffRouter = require('./routes/staff')
 
 
 const connectDB = async() => {
@@ -54,6 +55,7 @@ app.use('/api/depots', depotRouter);
 app.use('/api/suppliers', supplierRouter);
 app.use('/api/exports', exportRouter);
 app.use('/api/cars', carRouter);
+app.use('/api/staff', staffRouter);
 
 const PORT = process.env.PORT || 5000;
 

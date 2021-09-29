@@ -3,6 +3,7 @@ import { UnitContext } from '../../contexts/UnitContext';
 import { AuthContext } from '../../contexts/AuthContext';
 import {Spinner, Card} from 'react-bootstrap';
 import UpdateUnit from './UpdateUnit';
+import DeleteModal from '../../components/layout/DeleteModal';
 
 const ListUnit = () => {
 
@@ -73,7 +74,7 @@ const ListUnit = () => {
                                                             <button className="btn btn-success btn-with-icon btn-block" onClick={chooseUnit.bind(this, unit._id)}><i className="fe fe-edit"></i> Sửa</button>
                                                         </div>
                                                         <div className="col-sm">
-                                                            <button className="btn btn-danger btn-with-icon btn-block" onClick={deleteUnit.bind(this, unit._id)}><i className="fe fe-trash-2"></i> Xóa</button>
+                                                            <DeleteModal idProps={unit._id} deleteFunc={deleteUnit} />
                                                         </div>
                                                     </div>
                                                 </td>

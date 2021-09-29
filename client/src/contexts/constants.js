@@ -81,3 +81,11 @@ export const ADD_EXPORT = 'ADD_EXPORT'
 export const DELETE_EXPORT = 'DELETE_EXPORT'
 export const FIND_EXPORT = 'FIND_EXPORT'
 export const UPDATE_EXPORT = 'UPDATE_EXPORT'
+
+//staff
+export const STAFF_LOADED_SUCCESS = 'STAFF_LOADED_SUCCESS'
+export const STAFF_LOADED_FAIL = 'STAFF_LOADED_FAIL'
+export const ADD_STAFF = 'ADD_STAFF'
+export const DELETE_STAFF = 'DELETE_STAFF'
+export const FIND_STAFF = 'FIND_STAFF'
+export const UPDATE_STAFF = 'UPDATE_STAFF'

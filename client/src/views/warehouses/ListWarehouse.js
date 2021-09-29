@@ -3,6 +3,7 @@ import { WarehouseContext } from '../../contexts/WarehouseContext';
 import { AuthContext } from '../../contexts/AuthContext';
 import {Spinner, Card} from 'react-bootstrap';
 import UpdateWarehouse from './UpdateWarehouse';
+import DeleteModal from '../../components/layout/DeleteModal';
 
 const ListWarehouse = () => {
 
@@ -77,7 +78,7 @@ const ListWarehouse = () => {
                                                             <button className="btn btn-success btn-with-icon btn-block" onClick={chooseWarehouse.bind(this, warehouse._id)}><i className="fe fe-edit"></i> Sửa</button>
                                                         </div>
                                                         <div className="col-sm">
-                                                            <button className="btn btn-danger btn-with-icon btn-block" onClick={deleteWarehouse.bind(this, warehouse._id)}><i className="fe fe-trash-2"></i> Xóa</button>
+                                                            <DeleteModal idProps={warehouse._id} deleteFunc={deleteWarehouse} />
                                                         </div>
                                                     </div>
                                                 </td>

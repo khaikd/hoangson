@@ -1,48 +1,46 @@
 import { Fragment, useContext, useEffect } from 'react';
-import { MaterialContext } from '../../../contexts/MaterialContext';
-import { AuthContext } from '../../../contexts/AuthContext';
-import {Spinner, Card} from 'react-bootstrap';
-import UpdateMaterial from './UpdateMaterial';
-import DeleteModal from '../DeleteModal';
+import { StaffContext } from '../../contexts/StaffContext';
+import { AuthContext } from '../../contexts/AuthContext';
+import { Spinner, Card } from 'react-bootstrap';
+import UpdateStaff from './UpdateStaff';
+import DeleteModal from '../../components/layout/DeleteModal';
 
-const ListMaterial = () => {
+const ListStaff = () => {
 
     // Context
-    const {authState: {user: {username} }} = useContext(AuthContext)
+    const {authState: {user: {name} }} = useContext(AuthContext)
     const { 
-        materialState: { material, materials, materialsLoading },
-        getMaterials,
-        findMaterial,
-        deleteMaterial,
-        setShowUpdateMaterial
-    } = useContext(MaterialContext)
+        staffState: { staff, staffs, staffsLoading },
+        getStaffs,
+        findStaff,
+        deleteStaff,
+        setShowUpdateStaff
+    } = useContext(StaffContext)
 
-    const chooseMaterial = materialId => {
-        findMaterial(materialId)
-        setShowUpdateMaterial(true)
+    const chooseStaff = staffId => {
+        findStaff(staffId)
+        setShowUpdateStaff(true)
     }
 
-    // Start: Get all Vật Liệu Xây Dựng , []
-    useEffect( () => getMaterials(), [] ) // eslint-disable-line react-hooks/exhaustive-deps
+    // Start: Get all staffs , []
+    useEffect( () => getStaffs(), [] ) // eslint-disable-line react-hooks/exhaustive-deps
     let body = null
 
-    //console.log(material)
-
-    if(materialsLoading){
+    if(staffsLoading){
         body = (
             <div className="spinner-container">
                 <Spinner animation='border' variant='info'></Spinner>
             </div>
         )
-    }else if(materials.length === 0){
+    }else if(staffs.length === 0){
         body = (
             <Fragment>
                 <Card className='text-center mx-5 my-5'>
-                    <Card.Header as='h1'>Xin chào {username}</Card.Header>
+                    <Card.Header as='h1'>Xin chào {name}</Card.Header>
                     <Card.Body>
                         <Card.Title>Chào mừng bạn đến với phần mềm quản lý của công ty xây dựng Hoàng Sơn</Card.Title>
                         <Card.Text>
-                            Nhấp vào nút bên dưới để tạo vật liệu xây dựng
+                            Nhấp vào nút bên dưới để tạo nhóm vật liệu xây dựng
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -62,21 +60,25 @@ const ListMaterial = () => {
                                                 <tr>
                                                     <th>STT</th>
                                                     <th>Tên</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Tình trạng</th>
                                                     <th className="w-220"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {materials.map((material, index) => (
+                                                {staffs.map((staff, index) => (
                                                 <tr key={index}>
                                                     <td>{index + 1}</td>
-                                                    <td>{material.name}</td>
+                                                    <td>{staff.name}</td>
+                                                    <td>{staff.phone}</td>
+                                                    <td>{staff.status === "active" ? "Đang Làm" : "Đã Nghỉ"}</td>
                                                     <td>
                                                         <div className="row">
                                                             <div className="col-sm">
-                                                                <button className="btn btn-success btn-with-icon btn-block" onClick={chooseMaterial.bind(this, material._id)}><i className="fe fe-edit"></i> Sửa</button>
+                                                                <button className="btn btn-success btn-with-icon btn-block" onClick={chooseStaff.bind(this, staff._id)}><i className="fe fe-edit"></i> Sửa</button>
                                                             </div>
                                                             <div className="col-sm">
-                                                                <DeleteModal idProps={material._id} deleteFunc={deleteMaterial} />
+                                                                <DeleteModal idProps={staff._id} deleteFunc={deleteStaff} />
                                                             </div>
                                                         </div>
                                                     </td>
@@ -91,16 +93,15 @@ const ListMaterial = () => {
                     </div>
                 </div>
             </Fragment>
-        )    
+        )  
     }
-
 
     return (
         <Fragment>
             {body}
-            {material !== null && <UpdateMaterial />}
+            {staff !== null && <UpdateStaff />}
         </Fragment>
     )
 }
 
-export default ListMaterial
+export default ListStaff

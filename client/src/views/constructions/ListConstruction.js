@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import {Spinner, Card} from 'react-bootstrap';
 import moment from 'moment';
 import UpdateConstruction from './UpdateConstruction';
+import DeleteModal from '../../components/layout/DeleteModal';
 
 const ListConstruction = () => {
 
@@ -78,7 +79,7 @@ const ListConstruction = () => {
                                                             <button className="btn btn-success btn-with-icon btn-block" onClick={chooseConstruction.bind(this, construction._id)}><i className="fe fe-edit"></i> Sửa</button>
                                                         </div>
                                                         <div className="col-sm">
-                                                            <button className="btn btn-danger btn-with-icon btn-block" onClick={deleteConstruction.bind(this, construction._id)}><i className="fe fe-trash-2"></i> Xóa</button>
+                                                            <DeleteModal idProps={construction._id} deleteFunc={deleteConstruction} />
                                                         </div>
                                                     </div>
                                                 </td>
