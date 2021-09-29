@@ -2,6 +2,7 @@ import { Fragment, useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import {Spinner, Card} from 'react-bootstrap';
 import UpdateUser from './UpdateUser';
+import DeleteModal from '../../components/layout/DeleteModal';
 
 const ListUser = () => {
 
@@ -78,7 +79,7 @@ const ListUser = () => {
                                                             <button className="btn btn-success btn-with-icon btn-block" onClick={chooseUser.bind(this, user._id)}><i className="fe fe-edit"></i> Sửa</button>
                                                         </div>
                                                         <div className="col-sm">
-                                                        <button className="btn btn-danger btn-with-icon btn-block" onClick={deleteUser.bind(this, user._id)} ><i className="fe fe-trash-2"></i> Xóa</button>
+                                                            <DeleteModal idProps={user._id} deleteFunc={deleteUser} />
                                                         </div>
                                                     </div>
                                                 </td>
