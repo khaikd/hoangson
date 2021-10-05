@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, Fragment } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Select from 'react-select';
 import { UnitContext } from '../../contexts/UnitContext';
 import { MaterialContext } from '../../contexts/MaterialContext';

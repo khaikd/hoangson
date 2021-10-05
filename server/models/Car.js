@@ -10,6 +10,10 @@ const CarSchema = new Schema({
         type: String,
         require: true
     },
+    staff: {
+        type: Schema.Types.ObjectId,
+        ref: 'staff'
+    },
     createdAt: {
         type: Date,
         default: Date.now()

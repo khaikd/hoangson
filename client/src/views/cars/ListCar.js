@@ -1,40 +1,39 @@
 import { Fragment, useContext, useEffect } from 'react';
-import { ConstructionContext } from '../../contexts/ConstructionContext';
+import { CarContext } from '../../contexts/CarContext';
 import { AuthContext } from '../../contexts/AuthContext';
 import {Spinner, Card} from 'react-bootstrap';
-import moment from 'moment';
-import UpdateConstruction from './UpdateConstruction';
+import UpdateCar from './UpdateCar';
 import DeleteModal from '../../components/layout/DeleteModal';
 
-const ListConstruction = () => {
+const ListCar = () => {
 
     // Context
     const {authState: {user: { name } }} = useContext(AuthContext)
     const { 
-        constructionState: { construction, constructions, constructionsLoading },
-        getConstructions,
-        findConstruction,
-        deleteConstruction,
-        setShowUpdateConstruction
-    } = useContext(ConstructionContext)
+        carState: { car, cars, carsLoading },
+        getCars,
+        findCar,
+        deleteCar,
+        setShowUpdateCar
+    } = useContext(CarContext)
 
-    const chooseConstruction = constructionId => {
-        findConstruction(constructionId)
-        setShowUpdateConstruction(true)
+    const chooseCar = carId => {
+        findCar(carId)
+        setShowUpdateCar(true)
     }
 
-    // Start: Get all Công Trình , []
-    useEffect( () => getConstructions(), [] ) // eslint-disable-line react-hooks/exhaustive-deps
+    // Start: Get all xe , []
+    useEffect( () => getCars(), [] ) // eslint-disable-line react-hooks/exhaustive-deps
 
     let body = null
 
-    if(constructionsLoading){
+    if(carsLoading){
         body = (
             <div className="spinner-container">
                 <Spinner animation='border' variant='info'></Spinner>
             </div>
         )
-    }else if(constructions.length === 0){
+    }else if(cars.length === 0){
         body = (
             <Fragment>
                 <Card className='text-center mx-5 my-5'>
@@ -61,25 +60,21 @@ const ListConstruction = () => {
                                             <tr>
                                                 <th>STT</th>
                                                 <th>Tên</th>
-                                                <th>Địa Chỉ</th>
-                                                <th>Ngày Khởi Công</th>
                                                 <th className="w-220"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {constructions.map((construction, index) => (
+                                            {cars.map((car, index) => (
                                             <tr key={index}>
-                                                <td>{index + 1}</td>
-                                                <td>{construction.name}</td>
-                                                <td>{construction.address}</td>
-                                                <td>{moment(construction.publicDate).format('DD/MM/YYYY')}</td>
+                                                <td style={ {lineHeight: "38px"} }>{index + 1}</td>
+                                                <td style={ {lineHeight: "38px"} }>{car.name}</td>
                                                 <td>
                                                     <div className="row">
                                                         <div className="col-sm">
-                                                            <button className="btn btn-success btn-with-icon btn-block" onClick={chooseConstruction.bind(this, construction._id)}><i className="fe fe-edit"></i> Sửa</button>
+                                                            <button className="btn btn-success btn-with-icon btn-block" onClick={chooseCar.bind(this, car._id)}><i className="fe fe-edit"></i> Sửa</button>
                                                         </div>
                                                         <div className="col-sm">
-                                                            <DeleteModal idProps={construction._id} deleteFunc={deleteConstruction} />
+                                                            <DeleteModal idProps={car._id} deleteFunc={deleteCar} />
                                                         </div>
                                                     </div>
                                                 </td>
@@ -96,12 +91,13 @@ const ListConstruction = () => {
         )
     }
 
+
     return (
         <Fragment>
             {body}
-            {construction !== null && <UpdateConstruction />}
+            {car !== null && <UpdateCar />}
         </Fragment>
     )
 }
 
-export default ListConstruction
+export default ListCar

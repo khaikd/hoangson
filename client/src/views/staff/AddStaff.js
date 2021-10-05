@@ -18,7 +18,7 @@ const AddStaff = () => {
         description: ''
     })
 
-    const { name, phone, address, level, description, status } = newStaff
+    const { name, phone, address, description } = newStaff
 
     const optionLevels = [
         {

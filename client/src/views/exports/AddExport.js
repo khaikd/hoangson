@@ -67,7 +67,7 @@ const AddExport = () => {
         construction: ''
     })
 
-    const { title, exporter, receiver, dateExport, warehouse, construction } = newExport
+    const { title, exporter, receiver, dateExport } = newExport
 
     const onChangeValue = event => setNewExport( {...newExport, [event.target.name]: event.target.value } )
 

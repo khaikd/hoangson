@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from 'react';
+import { Fragment, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Toast } from 'react-bootstrap';
 import ListUser from './ListUser';
@@ -13,11 +13,11 @@ const User = () => {
         setShowToast
     } = useContext(AuthContext)
 
-    const [defaultLevel, setDefaultLevel] = useState(level)
+    //const [defaultLevel, setDefaultLevel] = useState(level)
 
     let body = null
 
-    if(defaultLevel === 'manager'){
+    if(level === 'manager'){
         body = (
             <div className="horizontal-mainwrapper container clearfix">
                 <div className="explain-dashboard mt-5">

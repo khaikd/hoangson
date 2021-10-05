@@ -18,7 +18,7 @@ const UpdateStaff = () => {
 
     useEffect( () => setUpdatedStaff(staff), [staff] )
 
-    const { name, phone, address, level, description, status } = updatedStaff
+    const { name, phone, address, description } = updatedStaff
 
     const optionLevels = [
         {
@@ -146,7 +146,7 @@ const UpdateStaff = () => {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button className="btn btn-danger btn-with-icon" variant='secondary' onClick={closeDialog}><i className="fe fe-x-circle"></i> Hủy</Button>
-                        <Button className="btn btn-primary btn-with-icon" variant='primary' type='submit'><i className="fe fe-save"></i> Lưu Nhóm!!!</Button>
+                        <Button className="btn btn-primary btn-with-icon" variant='primary' type='submit'><i className="fe fe-save"></i> Lưu!!!</Button>
                     </Modal.Footer>
                 </Form>
             </Modal>

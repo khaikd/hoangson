@@ -89,3 +89,11 @@ export const ADD_STAFF = 'ADD_STAFF'
 export const DELETE_STAFF = 'DELETE_STAFF'
 export const FIND_STAFF = 'FIND_STAFF'
 export const UPDATE_STAFF = 'UPDATE_STAFF'
+
+//cars
+export const CARS_LOADED_SUCCESS = 'CARS_LOADED_SUCCESS'
+export const CARS_LOADED_FAIL = 'CARS_LOADED_FAIL'
+export const ADD_CAR = 'ADD_CAR'
+export const DELETE_CAR = 'DELETE_CAR'
+export const FIND_CAR = 'FIND_CAR'
+export const UPDATE_CAR = 'UPDATE_CAR'

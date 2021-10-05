@@ -21,7 +21,7 @@ router.get('/', verifyToken, async(req, res) => {
 // @desc Create a car
 // @access Private
 router.post('/', verifyToken, async(req, res) => {
-    const { name, description } = req.body
+    const { name, description, staff } = req.body
 
     // Simple validation
     if (!name)
@@ -31,7 +31,8 @@ router.post('/', verifyToken, async(req, res) => {
     try {
         const newCar = new Car({
             name,
-            description: description || ''
+            description: description || '',
+            staff
         })
 
         await newCar.save()
@@ -47,7 +48,7 @@ router.post('/', verifyToken, async(req, res) => {
 // @desc Update car
 // @access Private
 router.put('/:id', verifyToken, async(req, res) => {
-    const { name, description } = req.body
+    const { name, description, staff } = req.body
 
     // Simple validation
     if (!name)
@@ -57,7 +58,8 @@ router.put('/:id', verifyToken, async(req, res) => {
     try {
         let updateCar = {
             name,
-            description: description || ''
+            description: description || '',
+            staff
         }
 
         const carUpdateCondition = { _id: req.params.id }

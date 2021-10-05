@@ -1,4 +1,4 @@
-import { createContext, useState, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 import { roomReducer } from '../reducers/roomReducer';
 import { apiUrl, ROOMS_LOADED_SUCCESS, ROOMS_LOADED_FAIL } from './constants';
 import axios from 'axios';

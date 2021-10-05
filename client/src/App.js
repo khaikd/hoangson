@@ -18,6 +18,7 @@ import Depot from './views/depots/Depot';
 import Export from './views/exports/Export';
 import User from './views/users/User';
 import Staff from './views/staff/Staff';
+import Car from './views/cars/Car';
 import Construction from './views/constructions/Construction';
 import AuthContextProvider from './contexts/AuthContext';
 import ProtectedRoute from './components/routing/ProtectedRoute';
@@ -32,6 +33,7 @@ import UnitContextProvider from './contexts/UnitContext';
 import DepotContextProvider from './contexts/DepotContext';
 import ExportContextProvider from './contexts/ExportContext';
 import StaffContextProvider from './contexts/StaffContext';
+import CarContextProvider from './contexts/CarContext';
 
 function App() {
   return (
@@ -47,27 +49,30 @@ function App() {
                       <DepotContextProvider>
                         <ExportContextProvider>
                           <StaffContextProvider>
-                            <Router>
-                              <Switch>
-                                <Route exact path='/' component={Landing} />
-                                <Route exact path='/login' render={ props => <Auth { ...props } authRoute='login' /> } />
-                                <Route exact path='/register' render={ props => <Auth { ...props } authRoute='register' /> } />
-                                <ProtectedRoute exact path='/dashboard' component={Dashboard} />
-                                <ProtectedRoute exact path='/about' component={About} />
-                                <ProtectedRoute exact path='/rooms' component={Room} />
-                                <ProtectedRoute exact path='/cruises' component={Cruise} />
-                                <ProtectedRoute exact path='/profile/:id' component={Profile} />
-                                <ProtectedRoute exact path='/categories' component={Category} />
-                                <ProtectedRoute exact path='/materials' component={Material} />
-                                <ProtectedRoute exact path='/constructions' component={Construction} />
-                                <ProtectedRoute exact path='/warehouses' component={Warehouse} />
-                                <ProtectedRoute exact path='/units' component={Unit} />
-                                <ProtectedRoute exact path='/depots' component={Depot} />
-                                <ProtectedRoute exact path='/exports' component={Export} />
-                                <ProtectedRoute exact path='/users' component={User} />
-                                <ProtectedRoute exact path='/staff' component={Staff} />
-                              </Switch>
-                            </Router>
+                            <CarContextProvider>
+                              <Router>
+                                <Switch>
+                                  <Route exact path='/' component={Landing} />
+                                  <Route exact path='/login' render={ props => <Auth { ...props } authRoute='login' /> } />
+                                  <Route exact path='/register' render={ props => <Auth { ...props } authRoute='register' /> } />
+                                  <ProtectedRoute exact path='/dashboard' component={Dashboard} />
+                                  <ProtectedRoute exact path='/about' component={About} />
+                                  <ProtectedRoute exact path='/rooms' component={Room} />
+                                  <ProtectedRoute exact path='/cruises' component={Cruise} />
+                                  <ProtectedRoute exact path='/profile/:id' component={Profile} />
+                                  <ProtectedRoute exact path='/categories' component={Category} />
+                                  <ProtectedRoute exact path='/materials' component={Material} />
+                                  <ProtectedRoute exact path='/constructions' component={Construction} />
+                                  <ProtectedRoute exact path='/warehouses' component={Warehouse} />
+                                  <ProtectedRoute exact path='/units' component={Unit} />
+                                  <ProtectedRoute exact path='/depots' component={Depot} />
+                                  <ProtectedRoute exact path='/exports' component={Export} />
+                                  <ProtectedRoute exact path='/users' component={User} />
+                                  <ProtectedRoute exact path='/staff' component={Staff} />
+                                  <ProtectedRoute exact path='/cars' component={Car} />
+                                </Switch>
+                              </Router>
+                            </CarContextProvider>
                           </StaffContextProvider>
                         </ExportContextProvider>
                       </DepotContextProvider>
