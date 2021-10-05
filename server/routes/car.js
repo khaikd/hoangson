@@ -50,7 +50,7 @@ router.post('/', verifyToken, async(req, res) => {
 router.put('/:id', verifyToken, async(req, res) => {
     const { name, description, staff } = req.body
 
-    // Simple validation
+
     if (!name)
         return res.status(400)
             .json({ success: false, message: 'Tên xe là bắt buộc!' });
